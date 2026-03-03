@@ -29,5 +29,23 @@
  */
 
 
-var secondHighest = function(s) {
-}
+var secondHighest = function (s) {
+
+    let max1 = -1;
+    let max2 = -1;
+
+    for (let ch of s) {
+        if (ch >= '0' && ch <= '9') {
+            let currentNumber = Number(ch)
+            if (currentNumber > max1) {
+                max2 = max1;
+                max1 = currentNumber;
+            } else if (currentNumber > max2 && currentNumber !== max1) {
+                max2 = currentNumber;
+            }
+        }
+    }
+
+    return max2
+
+};
