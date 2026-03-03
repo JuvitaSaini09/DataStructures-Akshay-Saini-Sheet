@@ -23,7 +23,19 @@
  */
 
 function sum(...args) {
-    // Your implementation
+    const total = args.reduce((acc, currentValue) => acc + currentValue, 0)
+    return total;
+}
+
+function sum(...args) {
+    // const total = args.reduce((acc, currentValue) => acc + currentValue, 0)
+    // return total;
+    let total = 0;
+    for(let num of args){
+        total =+num;
+        
+    }
+    return total;
 }
 
 //For the purpose of user debugging.
