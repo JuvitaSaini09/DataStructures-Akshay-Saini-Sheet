@@ -23,10 +23,22 @@
  */
 
 function sum(...args) {
-    // Your implementation
+     return args.reduce((total, currentvalue) => {
+       return total + currentvalue;
+    },0)
+}
+
+function sumwithstring(...args) {
+    return args.reduce((total, currentvalue) => {
+        if (typeof currentvalue === 'string') {
+            return total
+        } else {
+            return total + currentvalue
+        }
+    },0)
 }
 
 //For the purpose of user debugging.
-sum(100, 200, 300, 400);
+console.log("sum of sum(100, 200, 300, 400) is:",sum(100, 200, 300, 400))
 
 module.exports = sum
