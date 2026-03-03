@@ -29,5 +29,31 @@
  */
 
 
-var secondHighest = function(s) {
-}
+// var secondHighest = function(s) {
+
+//     for(let char of s){
+//         console.log(char);
+        
+
+//     }
+// }
+
+var secondHighest = function (s) {
+    let firstlargest = -1;
+    let secondlargest = -1;
+    for (let i = 0; i < s.length; i++) {
+      let ch = s[i];
+      if (ch >= "0" && ch <= "9") {
+        let num = Number(ch);
+        if (num > firstlargest) {
+          secondlargest = firstlargest;
+          firstlargest = num;
+        } else if (num < firstlargest && num > secondlargest) {
+          secondlargest = num;
+        }
+      }
+    }
+    return secondlargest;
+  };
+
+console.log(secondHighest("dfa12321afd"))
