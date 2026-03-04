@@ -39,6 +39,18 @@
  * @param {number} x
  * @return {boolean}
  */
-var isPalindrome = function(x) {
-    
+var isPalindrome = function (x) {
+  //   let string = x.toString();
+  //   let reversed = string.split("").reverse().join("");
+  //   return string === reversed;
+  let reverse = 0;
+  let num = x;
+
+  while (x > 0) {
+    let r = x % 10;
+    reverse = reverse * 10 + r;
+    x = Math.floor(x / 10);
+  }
+  return num === reverse;
 };
+console.log(isPalindrome(121));
