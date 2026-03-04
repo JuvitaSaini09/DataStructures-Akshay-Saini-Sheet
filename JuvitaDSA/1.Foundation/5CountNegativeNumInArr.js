@@ -26,7 +26,27 @@
  */
 
 function countNegatives(arr) {
-  // implement your solution here
+  if (!Array.isArray(arr)) return false;
+
+  let count = 0;
+
+  for (const value of arr) {
+    if (!Number.isFinite(value)) {
+      return false;
+    }
+    if (value < 0) count++;
+  }
+
+  return count;
 }
+console.log(countNegatives([]))
+console.log(countNegatives([-1,0,1]))
+console.log(countNegatives([-2,-5,-7]))
+console.log(countNegatives([0,2,3]))
+
+
+
+module.exports = { countNegatives };
+
 
 module.exports = { countNegatives };
