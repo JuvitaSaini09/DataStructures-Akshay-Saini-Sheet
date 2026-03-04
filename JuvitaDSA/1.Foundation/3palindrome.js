@@ -39,6 +39,21 @@
  * @param {number} x
  * @return {boolean}
  */
-var isPalindrome = function(x) {
-    
+
+var isPalindrome = function (x) {
+
+    if (x < 0) {
+        return false;
+    }
+
+    let reverse = 0;
+    let num = x;
+
+    while (num > 0) {
+        let rightMost = num % 10;
+        reverse = reverse * 10 + rightMost;
+        num = Math.floor(num / 10)
+    }
+
+    return reverse === x;
 };
