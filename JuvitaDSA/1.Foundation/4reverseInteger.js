@@ -33,6 +33,21 @@
  * @param {number} x
  * @return {number}
  */
-var reverse = function(x) {
-    
+const INT_MAX = Math.pow(2, 31) - 1
+
+var reverse = function (x) {
+
+    let rev = 0;
+    let num = Math.abs(x)
+
+    while (num > 0) {
+        let digit = num % 10;
+        num = Math.floor(num / 10);
+        if (rev > INT_MAX) return 0;
+        rev = rev * 10 + digit;
+        if (rev > INT_MAX) return 0;
+    }
+
+    if (x < 0) rev = -rev;
+    return rev;
 };
