@@ -7,5 +7,5 @@ var removeElement = function(array, val) {
 
         }
     }
-    return i+1; 
+    return i; 
 };
