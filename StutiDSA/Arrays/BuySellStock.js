@@ -1,18 +1,18 @@
 var maxProfit = function (array) {
-    let buyprice = array[0];
-    let Mprofit = 0;
-    for (let j = 1; j < array.length; j++) {
-       let sellingPrice = array[j];
-        let Profit = sellingPrice - buyprice;
-        if (Profit > Mprofit) {
-            Mprofit = Profit;
+  let buyPrice = array[0];
+  let maxProfit = 0;
 
-        }
-         if (sellingPrice < buyprice) {
-            buyprice = sellingPrice;
-        }
-
+  for (let i = 1; i < array.length; i++) {
+    let profit = array[i] - buyPrice;
+    if (array[i] < buyPrice) {
+      buyPrice = array[i];
+    } else if (profit > maxProfit) {
+      maxProfit = profit;
     }
-    return Mprofit;
+  }
+  return maxProfit;
+};
 
-}
+// prices = [7, 1, 5, 3, 6, 4];
+console.log(maxProfit([7, 1, 5, 3, 6, 4]));
+
