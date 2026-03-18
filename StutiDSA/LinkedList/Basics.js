@@ -1,19 +1,42 @@
 class Node {
-    constructor(data) {
-      this.data = data;
-      this.next = null;
-    }
+  constructor(data) {
+    this.data = data;
+    this.next = null;
   }
-  let head = new Node(10);
-  head.next = new Node(20);
-  head.next.next = new Node(30);
-  head.next.next.next = new Node(40);
-  
-  let temp = head;
-  while (temp !== null) {
-    process.stdout.write(temp.data + " ");
-    temp = temp.next;
+}
+
+var insertAtEnd = function (head, data) {
+  let newNode = new Node(data);
+  // if list empty
+  if (head === null) {
+    return newNode;
   }
+  let curr = head;
+  while (curr.next !== null) {
+    curr = curr.next;
+  }
+  curr.next= newNode;
+  return head ;
+};
+var insertAtFront = function (head, data) {
+  let newNode = new Node(data);
+  newNode.next = head;
+  head = newNode;
+  return head;
+};
+
+let head = new Node(10);
+head.next = new Node(20);
+head.next.next = new Node(30);
+head.next.next.next = new Node(40);
+
+head = insertAtFront(head, 1);
+
+let temp = head;
+while (temp !== null) {
+  process.stdout.write(temp.data + " ");
+  temp = temp.next;
+}
 
 //   Traversal of Singly Linked List (Iterative Approach)
 
@@ -24,32 +47,30 @@ class Node {
 // While the pointer is not null, we will access and print the data of the current node, then we move the pointer to next node.
 
 class Node {
-
-    // constructor to initialize a new node with data
-    constructor(newData) {
-        this.data = newData;
-        this.next = null;
-    }
+  // constructor to initialize a new node with data
+  constructor(newData) {
+    this.data = newData;
+    this.next = null;
+  }
 }
 function traverseList(head) {
-
-    while (head !== null) {
-        process.stdout.write(head.data.toString());
-        if (head.next !== null) {   
-            console.log();
-            (" -> ");
-        }
-        head = head.next;
+  while (head !== null) {
+    process.stdout.write(head.data.toString());
+    if (head.next !== null) {
+      console.log();
+      (" -> ");
     }
-    console.log();
+    head = head.next;
+  }
+  console.log();
 }
 
 function traverseRecursion(head) {
-    if (head === null) return;
-  
-    console.log(head.data);   
-    traverseRecursion(head.next);
-  }
+  if (head === null) return;
+
+  console.log(head.data);
+  traverseRecursion(head.next);
+}
 
 let head = new Node(10);
 head.next = new Node(20);
@@ -65,18 +86,12 @@ traverseList(head);
 // You are given the head of a singly linked list.
 // Return an array containing the values of the nodes.
 
-
-function LinkedListToArray(){
-    let result = [];
-    let temp = head;
-    while(temp !== null){
-        result.push(temp.data);
-        temp = temp.next;
-    }
-    return result
+function LinkedListToArray() {
+  let result = [];
+  let temp = head;
+  while (temp !== null) {
+    result.push(temp.data);
+    temp = temp.next;
+  }
+  return result;
 }
-
-
-
-
-
