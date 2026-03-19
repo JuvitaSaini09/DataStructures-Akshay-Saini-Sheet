@@ -1,0 +1,47 @@
+// Define a node in the linked list
+class Node {
+    constructor(x) {
+        this.data = x;
+        this.next = null;
+    }
+}
+
+// Function to insert a new node 
+// at the beginning of the list
+function insertAtFront(head, x) {
+    let newNode = new Node(x);
+    newNode.next = head;
+    return newNode;
+}
+
+
+// function printList(head) {
+//     let curr = head;
+//     while (curr !== null) {
+//         process.stdout.write(curr.data.toString());
+//         if (curr.next !== null) {
+//             process.stdout.write(" -> ");
+//         }
+//         curr = curr.next;
+//     }
+//     console.log();
+// }
+
+
+// function main() {
+//     // Create the linked list 2->3->4->5
+//     let head = new Node(2);
+//     head.next = new Node(3);
+//     head.next.next = new Node(4);
+//     head.next.next.next = new Node(5);
+
+//     // Insert a new node at 
+//     // the front of the list
+//     let x = 1;
+//     head = insertAtFront(head, x);
+
+//     // Print the updated list
+//     printList(head);
+// }
+
+// main();
