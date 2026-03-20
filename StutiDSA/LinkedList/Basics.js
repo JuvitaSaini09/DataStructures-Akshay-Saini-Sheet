@@ -15,15 +15,39 @@ var insertAtEnd = function (head, data) {
   while (curr.next !== null) {
     curr = curr.next;
   }
-  curr.next= newNode;
-  return head ;
+  curr.next = newNode;
+  return head;
 };
+
 var insertAtFront = function (head, data) {
   let newNode = new Node(data);
   newNode.next = head;
   head = newNode;
   return head;
 };
+
+var insertAtSpecificPosition = function (head, data, pos) {
+  let newNode = new Node(data);
+  if (pos === 1) {
+    newNode.next = head;
+    head = newNode;
+    return head;
+  }
+  let temp = head;
+  for (let i = 1; i < pos - 1 && temp != null; i++) {
+    temp = temp.next;
+  }
+  if (temp === null) {
+    return head;
+  }
+  newNode.next = temp.next;
+  temp.next = newNode;
+  return head;
+};
+
+// 1,2,4
+// 1,2,3,4
+// 2 tk chlega
 
 let head = new Node(10);
 head.next = new Node(20);
