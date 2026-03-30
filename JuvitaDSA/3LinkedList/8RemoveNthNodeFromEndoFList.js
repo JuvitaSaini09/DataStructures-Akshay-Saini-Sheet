@@ -1,9 +1,4 @@
-// first solution two pass 
-
-// find length to to travel=x=L-n then
-// travel x steps and delete the node ( use prev and curr pointer)
-
-var removeNthFromEnd = function (head, n) {
+var removeNthFromEnd1 = function (head, n) {
     let length = 0;
     let current = head;
     if (head === null) return null;
@@ -27,27 +22,24 @@ var removeNthFromEnd = function (head, n) {
 }
 
 
+
 var removeNthFromEnd = function (head, n) {
-    if (!head) return null;
-    let current = head;
-    let length = 0;
-    while (current !== null) {
-        current = current.next;
-        length++;
-    }
-    if (length === n) return head.next
-
-    let lengthToTravel = length - n;
-    current = head;
-    let prev = null;
-    while (lengthToTravel > 0) {
-        prev = current;
-        current = current.next;
-        lengthToTravel--;
+    if (head === null) return null;
+    let slow = head;
+    let fast = head;
+    let gap = n;
+    while (gap > 0) {
+        fast = fast.next
+        gap--;
     }
 
-    prev.next = current.next;
+    if(fast === null) return head.next;
+
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next
+    }
+
+    slow.next = slow.next.next;
     return head;
-};
-
-// second solution one pass 
+}
