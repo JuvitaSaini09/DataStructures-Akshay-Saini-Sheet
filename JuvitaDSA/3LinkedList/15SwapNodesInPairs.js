@@ -1,5 +1,5 @@
 /*
-this solution I wrote:
+this solution I wrote in 25 minutes
 
 */
 
