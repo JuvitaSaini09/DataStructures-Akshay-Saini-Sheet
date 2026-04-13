@@ -20,3 +20,5 @@ var lengthOfLastWord = function (s) {
 
     return length;
 };
+
+// similar question:https://leetcode.com/problems/reverse-words-in-a-string/description/
